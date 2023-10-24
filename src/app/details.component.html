@@ -1,0 +1,39 @@
+<article class="container">
+  <section class="listing-content">
+    <section class="listing-features">
+      <h2 class="section-heading">About This Event</h2>
+    </section>
+    <section class="listing-info">
+      <h2 class="listing-heading">
+        {{event?.name}}
+        <mat-icon *ngIf="isEditing" class="edit-icon" (click)="openEditDialog(EditType.Title)">edit</mat-icon>
+      </h2>
+      <p class="listing-business">
+        Hosted by {{event?.business}}
+        <mat-icon *ngIf="isEditing" class="edit-icon" (click)="openEditDialog(EditType.Business)">edit</mat-icon>
+      </p>
+      <p class="listing-location">
+        {{event?.neighborhood}}, {{event?.state}}
+        <mat-icon *ngIf="isEditing" class="edit-icon" (click)="openEditDialog(EditType.Neighborhood)">edit</mat-icon>
+      </p>
+      <p *ngIf="event?.performer != ''" class="listing-performer">
+        Performed by {{event?.performer}}
+        <mat-icon *ngIf="isEditing" class="edit-icon" (click)="openEditDialog(EditType.Performer)">edit</mat-icon>
+      </p>
+      <p class="listing-description">
+        {{event?.description}}
+        <mat-icon *ngIf="isEditing" class="edit-icon" (click)="openEditDialog(EditType.Description)">edit</mat-icon>
+      </p>
+      <p class="listing-date">
+        Starts at: {{event?.startDate}}
+        <mat-icon *ngIf="isEditing" class="edit-icon" (click)="openEditDialog(EditType.Description)">edit</mat-icon>
+      </p>
+    </section>
+    <p class="listing-url">
+      For more information <a href="{{event?.websiteUrl}}">click here</a> to visit the event page.
+    </p>
+  </section>
+  <img class="listing-photo" [src]="event?.photo" alt="Exterior photo of {{event?.name}}"/>
+
+  <button *ngIf="isEditing" mat-button class="save-button">Save</button>
+</article>

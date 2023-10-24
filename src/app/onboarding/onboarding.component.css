@@ -1,0 +1,10 @@
+.onboarding {
+  max-width: 600px;
+  margin: auto;
+  position: relative;
+}
+
+input {
+  display: block;
+  margin-top: 10px;
+}
